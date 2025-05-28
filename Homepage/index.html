@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UmbralisOS</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <main>
+        <div class="webcam-container">
+            <div class="webcam-titlebar">
+                <h3>♡ Umbralis cam ♡</h3>
+                <div class="webcam-close">×</div>
+            </div>
+            <div class="webcam-frame">
+                <img src="../IMG/streamer1.png" alt="Streamer">
+            </div>
+        </div>
+
+        <div class="stim-container">
+            <input type="checkbox" id="stim-toggle" class="stim-toggle">
+            <label for="stim-toggle" class="wow-button">Spin Umbralis</label>
+            <div class="stim-content">
+                <img src="../IMG/Stim.gif" alt="Stim">
+            </div>
+        </div>
+
+        <div class="companion-container">
+            <input type="checkbox" id="companion-toggle" class="companion-toggle">
+            <label for="companion-toggle" class="folder-icon companion-icon">
+                <img src="../IMG/companion.png" alt="UmbralisCompanion.exe">
+                <span>Companion</span>
+            </label>
+        </div>
+
+        <div class="paint-container">
+            <div class="folder-icon paint-icon" onclick="togglePaint()">
+                <img src="../IMG/paint.png" alt="Paint.exe">
+                <span>Paint</span>
+            </div>
+        </div>
+
+        <div class="luck-container">
+            <div class="folder-icon luck-icon" onclick="toggleLuck()">
+                <img src="../IMG/luck.png" alt="TestYourLuck.exe">
+                <span>Test Your Luck</span>
+            </div>
+        </div>
+
+        <div class="umbralisgotchi-container">
+            <div class="folder-icon umbralisgotchi-icon" onclick="toggleUmbralisgotchi()">
+                <img src="../IMG/umbralisgotchi.png" alt="Umbralisgotchi.exe">
+                <span>Umbralisgotchi</span>
+            </div>
+        </div>
+
+        <div class="umusic-container">
+            <div class="folder-icon umusic-icon" onclick="toggleUmusic()">
+                <img src="../IMG/umusic.png" alt="Umusic.exe">
+                <span>Umusic</span>
+            </div>
+        </div>
+
+        <div class="blackjack-container">
+            <div class="folder-icon blackjack-icon" onclick="toggleBlackjack()">
+                <img src="../IMG/blackjack.png" alt="Blackjack.exe">
+                <span>Blackjack</span>
+            </div>
+        </div>
+
+        <div id="paint-window" class="app-window" style="display: none;">
+            <div class="window-titlebar">
+                <h3>Paint</h3>
+                <div class="window-controls">
+                    <div class="window-minimize" onclick="minimizePaint()">_</div>
+                    <div class="window-maximize" onclick="maximizePaint()">&#9723;</div>
+                    <div class="window-close" onclick="closePaint()">×</div>
+                </div>
+            </div>
+            <div class="window-content">
+                <iframe src="https://jspaint.app/" frameborder="0" allowfullscreen="true" 
+                        allow="autoplay; fullscreen" scrolling="no"></iframe>
+            </div>
+        </div>
+
+        <div id="umbralisgotchi-window" class="app-window" style="display: none;">
+            <div class="window-titlebar">
+                <h3>Umbralisgotchi</h3>
+                <div class="window-controls">
+                    <div class="window-minimize" onclick="minimizeUmbralisgotchi()">_</div>
+                    <div class="window-maximize" onclick="maximizeUmbralisgotchi()">&#9723;</div>
+                    <div class="window-close" onclick="closeUmbralisgotchi()">×</div>
+                </div>
+            </div>
+            <div class="window-content">
+                <iframe width="314" height="321" scrolling="no" 
+                        src="https://gifypet.neocities.org/pet/pet.html?name=Umbralis&dob=1748328075&gender=f&element=Fire&pet=https%3A%2F%2Fraw.githubusercontent.com%2Fyubelyubel7%2Fimages2%2Frefs%2Fheads%2Fmain%2Fimg%2Fumbralispet.gif&map=hills.jpg&background=wood.jpg&tablecolor=%230433ff&textcolor=%23ff40ff" 
+                        frameborder="0"></iframe>
+            </div>
+        </div>
+
+        <div id="umusic-window" class="app-window" style="display: none;">
+            <div class="window-titlebar">
+                <h3>Umusic</h3>
+                <div class="window-controls">
+                    <div class="window-minimize" onclick="minimizeUmusic()">_</div>
+                    <div class="window-maximize" onclick="maximizeUmusic()">&#9723;</div>
+                    <div class="window-close" onclick="closeUmusic()">×</div>
+                </div>
+            </div>
+            <div class="window-content">
+                <iframe src="https://yubelyubel7.github.io/UmbralisPlayer/" 
+                        width="600" height="250" 
+                        frameborder="0" 
+                        allowfullscreen="true" 
+                        allow="fullscreen" 
+                        scrolling="no"></iframe>
+            </div>
+        </div>
+
+        <div id="luck-window" class="app-window" style="display: none;">
+            <div class="window-titlebar">
+                <h3>Test Your Luck</h3>
+                <div class="window-controls">
+                    <div class="window-minimize" onclick="minimizeLuck()">_</div>
+                    <div class="window-maximize" onclick="maximizeLuck()">&#9723;</div>
+                    <div class="window-close" onclick="closeLuck()">×</div>
+                </div>
+            </div>
+            <div class="window-content">
+                <iframe src="Test Your Luck/index.html" frameborder="0" allowfullscreen="true" 
+                        allow="autoplay; fullscreen" scrolling="no"></iframe>
+            </div>
+        </div>
+
+        <div id="blackjack-window" class="app-window" style="display: none;">
+            <div class="window-titlebar">
+                <h3>Blackjack</h3>
+                <div class="window-controls">
+                    <div class="window-minimize" onclick="minimizeBlackjack()">_</div>
+                    <div class="window-maximize" onclick="maximizeBlackjack()">&#9723;</div>
+                    <div class="window-close" onclick="closeBlackjack()">×</div>
+                </div>
+            </div>
+            <div class="window-content">
+                <iframe src="BlackJack/index.html" frameborder="0" allowfullscreen="true" 
+                        allow="autoplay; fullscreen" scrolling="yes"></iframe>
+            </div>
+        </div>
+    </main>
+
+    <div class="taskbar">
+        <button class="start_button">
+            <img src="../IMG/start.png" alt="Start">
+        </button>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.min.js"></script>
+    
+    <script src="live2d.js"></script>
+    
+    <script src="oneko.js"></script>
+</body>
+</html>
