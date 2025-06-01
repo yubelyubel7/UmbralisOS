@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UmbralisLogin</title>
+  <link href="https://fonts.googleapis.com/css?family=Tahoma:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="xp-login-outer">
+    <div class="xp-login-main">
+      <div class="xp-login-topbar"></div>
+      <div class="xp-login-content">
+        <div class="xp-login-left">
+          <div class="xp-login-logo">
+            <img src="IMG/uos.png" alt="UmbralisOS Logo" />
+            <span class="windows-logo-text">Umbralis<span class="xp-login-xp">OS</span></span>
+          </div>
+          <p>To begin, click your user name</p>
+        </div>
+        <div class="xp-login-right">
+          <div class="xp-userlist">
+            <div class="xp-user">
+              <div class="xp-user-avatar" style="background-image:url('IMG/admin.png');"></div>
+              <div class="xp-user-label">Administrator</div>
+            </div>
+            <div class="xp-user">
+              <div class="xp-user-avatar" style="background-image:url('IMG/umbralispfp.png');"></div>
+              <div class="xp-user-label">Umbralis</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="xp-login-bottom">
+        <div class="xp-login-off">
+          <span class="xp-login-off-icon">⏻</span>
+          Turn off computer
+        </div>
+        <div class="xp-login-bottom-text">
+          After you log on, you can add or change accounts.<br>
+          Just go to Control Panel and click User Accounts.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="access-error" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; cursor: pointer;">
+    <img src="IMG/noaccess.png" alt="No Access">
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

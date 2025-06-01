@@ -1,0 +1,198 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: #0050a0;
+  font-family: Tahoma, Verdana, Geneva, sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+}
+.xp-login-outer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(180deg, #1a4a94 0%, #4186cd 100%);
+}
+.xp-login-main {
+  width: 100%;
+  height: 100vh;
+  background: #3677c6;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+}
+.xp-login-topbar {
+  height: 80px;
+  background: #044e97;
+  width: 100%;
+}
+.xp-login-content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  background: #6ca0dc;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.xp-login-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-bottom: 50px;
+}
+.xp-login-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.xp-login-logo img {
+  width: 80px;
+  margin-right: 15px;
+}
+.windows-logo-text {
+  font-size: 2.1rem;
+  font-weight: bold;
+  color: #fff;
+}
+.xp-login-left h1 {
+  font-size: 2.3rem;
+  font-weight: bold;
+  color: #fff;
+  margin: 0 0 15px 0;
+  text-shadow: 1px 1px 4px #305b8c;
+}
+.xp-login-xp {
+  color: #ff9900;
+  font-weight: bold;
+  margin-left: 2px;
+}
+.xp-login-left p {
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 8px 0 0 0;
+  text-shadow: 1px 1px 3px #305b8c;
+}
+.xp-login-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 50%;
+  padding-bottom: 50px;
+}
+.xp-userlist {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  max-width: 400px;
+}
+.xp-user {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.04);
+}
+.xp-user:hover {
+  background: #417bc7;
+}
+.xp-user-avatar {
+  width: 64px;
+  height: 64px;
+  background: #b08050;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-right: 18px;
+  box-shadow: 1px 1px 6px #23436933;
+  background-size: cover;
+  background-position: center;
+}
+.xp-user-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px 3px #23436999;
+}
+.xp-login-bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #304381 0%, #14375e 100%);
+  height: 100px; /* Reduced from 125px */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  box-sizing: border-box;
+  border-top: 2px solid #193364;
+}
+.xp-login-off {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  gap: 12px;
+}
+.xp-login-off-icon {
+  width: 32px;
+  height: 32px;
+  background: #ea3e06;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-right: 5px;
+  border: 2px solid #ffffff;
+  box-shadow: 1px 1px 3px #1113;
+}
+.xp-login-bottom-text {
+  color: #d9e6fa;
+  font-size: 0.95rem;
+  text-align: right;
+  max-width: 420px;
+}
+
+@media (max-width: 900px) {
+  .xp-login-main {
+    width: 98vw;
+    min-width: 320px;
+  }
+  .xp-login-content {
+    padding: 10px;
+  }
+  .xp-userlist {
+    gap: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .xp-login-content {
+    flex-direction: column;
+  }
+  .xp-login-right, .xp-login-left {
+    padding-left: 0;
+    align-items: center;
+    max-width: 100%;
+  }
+  .xp-login-main {
+    min-width: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+}
