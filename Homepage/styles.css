@@ -1,0 +1,1036 @@
+body {
+    background-color: #0093aa;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    cursor: url("../IMG/cursor.png"), auto;
+    background-image: url(../IMG/Wallpaper.png);
+    background-size: cover;
+    background-position: center;
+    font-family: 'Tahoma', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.folder-container {
+    position: absolute;
+    top: 60px;
+    right: 120px;
+    z-index: 100;
+    display: inline-block;
+    margin: 10px;
+}
+
+.folder-container.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.folder-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: url('../IMG/cursor2.png'), pointer;
+}
+
+.folder-icon img {
+    width: 48px;
+    height: 48px;
+}
+
+.folder-icon span {
+    color: white;
+    margin-top: 5px;
+}
+
+.folder-toggle {
+    display: none;
+}
+
+.folder-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border: 1px solid #0a246a;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    display: none;
+    flex-direction: column;
+    width: 640px;
+    max-height: 600px;
+    z-index: 999;
+    padding: 0;
+    overflow: auto;
+}
+
+.folder-toggle:checked ~ .folder-content {
+    display: flex; 
+}
+
+.folder-titlebar {
+    background: linear-gradient(to right, #0a246a, #3a6ea5);
+    padding: 4px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px 8px 0 0;
+    cursor: grab;
+}
+
+.folder-titlebar h3 {
+    color: white;
+    font-size: 15px;
+    margin: 0;
+    font-weight: normal;
+    font-style: oblique;
+}
+
+.folder-controls {
+    display: flex;
+    gap: 2px;
+}
+
+.folder-minimize, .folder-maximize, .folder-close {
+    width: 22px;
+    height: 22px;
+    border: 1px solid #fff;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: 14px;
+}
+
+.folder-minimize, .folder-maximize {
+    background: linear-gradient(to bottom, #f0f0f0, #dadada);
+}
+
+.folder-close {
+    background: linear-gradient(to bottom, #e81123, #c21122);
+    color: #fff;
+}
+
+.folder-body {
+    padding: 10px;
+    color: #000;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-height: 550px;
+    overflow-y: auto;
+}
+
+.week-link {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    color: #000;
+    text-decoration: none;
+    min-width: 120px;
+}
+
+.week-link:hover {
+    background-color: #e8e8e8;
+    cursor: url('../IMG/cursor2.png'), pointer;
+}
+
+.week-link img {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.week-link span {
+    color: #000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.webcam-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    border: 1px solid #0a246a;
+    border-radius: 8px 8px 0 0;
+    background: #fff;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    width: 320px;
+}
+
+.webcam-titlebar {
+    background: linear-gradient(to right, #0a246a, #3a6ea5);
+    padding: 4px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px 8px 0 0;
+}
+
+.webcam-titlebar h3 {
+    color: white;
+    font-size: 15px;
+    margin: 0;
+    font-weight: normal;
+    font-style: oblique;
+}
+
+.webcam-close {
+    width: 22px;
+    height: 22px;
+    border: 1px solid #fff;
+    background: linear-gradient(to bottom, #e81123, #c21122);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.webcam-frame {
+    width: 315px;
+    height: 250px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 3px solid #245edb;
+    border-top: none;
+}
+
+.webcam-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.stim-container {
+    position: fixed;
+    top: 320px; 
+    left: 20px;
+    z-index: 1000;
+}
+
+.stim-toggle {
+    display: none;
+}
+
+.stim-content {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.stim-toggle:checked ~ .stim-content {
+    display: block;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.stim-content img {
+    animation: spin 3s linear infinite;
+}
+
+.wow-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(to bottom, #0058E3, #3C9BF7);
+    color: white;
+    cursor: pointer;
+    font-family: 'Tahoma', sans-serif;
+    border: 2px solid #294258;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.wow-button:hover {
+    background: linear-gradient(to bottom, #3C9BF7, #0058E3);
+    cursor: url('../IMG/cursor2.png'), pointer;
+}
+
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    background: linear-gradient(to bottom, #245edb, #1d4cdb, #2965de);
+    z-index: 9999;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.start_button {
+    height: 35px;
+    width: 112px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    outline: none;
+    overflow: hidden;
+}
+
+.start_button:focus {
+    outline: none;
+}
+
+.start_button img {
+    height: 35px;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+@media screen and (width: 1280px) and (height: 1024px) {
+    .folder-body {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .webcam-container {
+        width: 350px;
+    }
+    
+    .webcam-frame {
+        height: 260px;
+    }
+    
+    .app-window {
+        width: 800px;
+    }
+    
+    .window-content iframe {
+        width: 800px;
+        height: 550px;
+    }
+    
+    .companion-container {
+        right: 60px;
+    }
+    
+    .paint-container {
+        right: 60px;
+    }
+    
+    .stim-container {
+        top: 320px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .folder-body {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .webcam-container {
+        width: 260px;
+    }
+    
+    .webcam-frame {
+        height: 200px;
+    }
+}
+
+.companion-container {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    z-index: 100;
+}
+
+.companion-toggle {
+    display: none;
+}
+
+.companion-icon {
+    cursor: url('../IMG/cursor.png'), auto;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.companion-icon:hover {
+    cursor: url('../IMG/cursor2.png'), pointer;
+    background-color: rgba(0, 0, 255, 0.1);
+}
+
+.companion-icon img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+
+.companion-icon span {
+    color: white;
+    margin-top: 8px;
+    font-size: 14px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.paint-container {
+    position: absolute;
+    top: 130px;
+    right: 40px;
+    z-index: 100;
+}
+
+.paint-toggle {
+    display: none;
+}
+
+.paint-icon {
+    cursor: url('../IMG/cursor.png'), auto;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.paint-icon:hover {
+    cursor: url('../IMG/cursor2.png'), pointer;
+    background-color: rgba(0, 0, 255, 0.1);
+}
+
+.paint-icon img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+
+.paint-icon span {
+    color: white;
+    margin-top: 8px;
+    font-size: 14px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.paint-toggle:checked + .paint-icon {
+    background-color: rgba(0, 0, 255, 0.2);
+    border: 1px dotted #fff;
+    border-radius: 6px;
+    transform: none;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    padding: 6px;
+}
+
+.luck-container {
+    position: absolute;
+    top: 230px;
+    right: 60px;
+    z-index: 100;
+}
+
+.luck-icon {
+    cursor: url('../IMG/cursor.png'), auto;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.luck-icon:hover {
+    cursor: url('../IMG/cursor2.png'), pointer;
+    background-color: rgba(0, 0, 255, 0.1);
+}
+
+.luck-icon img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+
+.luck-icon span {
+    color: white;
+    margin-top: 8px;
+    font-size: 14px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+#live2d-widget {
+  pointer-events: auto !important;
+  z-index: 9000 !important;
+  position: fixed !important;
+  right: 100px !important;
+  bottom: 20px !important;
+  transition: opacity 0.3s ease-in-out !important;
+}
+
+#live2d-widget[style*="display: block"] {
+  opacity: 1 !important;
+}
+
+body #live2d-widget canvas {
+  opacity: 1 !important;
+}
+
+#live2d-widget.hidden {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.companion-toggle:checked + .companion-icon {
+  background-color: rgba(0, 0, 255, 0.2);
+  border: 1px dotted #fff;
+  border-radius: 6px;
+  transform: none;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  padding: 6px;
+}
+
+.app-window {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    margin-left: -400px;
+    background: #fff;
+    border: 1px solid #0a246a;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    overflow: hidden;
+    width: 800px;
+    transform: none !important;
+}
+
+.window-titlebar {
+    background: linear-gradient(to right, #0a246a, #3a6ea5);
+    padding: 4px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: grab;
+}
+
+.window-titlebar h3 {
+    color: white;
+    font-size: 15px;
+    margin: 0;
+    font-weight: normal;
+    font-style: oblique;
+}
+
+.window-controls {
+    display: flex;
+    gap: 2px;
+}
+
+.window-minimize, .window-maximize, .window-close {
+    width: 22px;
+    height: 22px;
+    border: 1px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: 14px;
+}
+
+.window-minimize, .window-maximize {
+    background: linear-gradient(to bottom, #f0f0f0, #dadada);
+    color: #000;
+}
+
+.window-close {
+    background: linear-gradient(to bottom, #e81123, #c21122);
+    color: #fff;
+}
+
+.window-content {
+    overflow: hidden;
+    position: relative;
+    width: 800px;
+    height: 550px;
+}
+
+.window-content iframe {
+    border: none;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: none !important;
+}
+
+.app-window.maximized {
+    top: 0 !important;
+    left: 0 !important;
+    margin-left: 0 !important;
+    width: 100% !important;
+    height: calc(100vh - 35px) !important;
+    border-radius: 0;
+}
+
+.app-window.maximized .window-content {
+    width: 100%;
+    height: calc(100% - 30px);
+}
+
+.app-window.maximized iframe {
+    width: 100%;
+    height: 100%;
+}
+
+#umbralisgotchi-window {
+    width: 314px !important;
+}
+
+#umbralisgotchi-window .window-content {
+    width: 314px !important;
+    height: 321px !important;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+#umbralisgotchi-window iframe {
+    width: 314px !important;
+    height: 321px !important;
+    border: none;
+    display: block;
+}
+
+#umbralisgotchi-window.maximized {
+    width: 100% !important;
+    height: calc(100vh - 35px) !important;
+    margin-left: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+#umbralisgotchi-window.maximized .window-content {
+    width: 100% !important;
+    height: calc(100% - 30px) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#umbralisgotchi-window.maximized iframe {
+    width: 500px !important;
+    height: 500px !important;
+    position: static;
+}
+
+#umusic-window {
+    width: 600px !important;
+    margin-left: -300px;
+}
+
+#umusic-window .window-content {
+    width: 600px !important;
+    height: 250px !important;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+#umusic-window iframe {
+    width: 600px !important;
+    height: 250px !important;
+    border: none;
+    display: block;
+}
+
+#luck-window {
+    width: 500px !important;
+}
+
+#luck-window .window-content {
+    width: 500px !important;
+    height: 400px !important;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+#luck-window iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
+    display: block;
+}
+
+#blackjack-window {
+    width: 500px !important;
+}
+
+#blackjack-window .window-content {
+    width: 500px !important;
+    height: 420px !important;
+    overflow: auto !important;
+    padding: 0;
+    margin: 0;
+}
+
+#blackjack-window iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
+}
+
+#blackjack-window.maximized {
+    width: 100% !important;
+    height: calc(100vh - 35px) !important;
+    margin-left: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    position: fixed !important;
+}
+
+#blackjack-window.maximized .window-content {
+    width: 100% !important;
+    height: calc(100% - 30px) !important;
+    overflow: auto !important;
+}
+
+#blackjack-window.maximized iframe {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.paint-icon.active {
+    background-color: rgba(0, 0, 255, 0.2);
+    border: 1px dotted #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    padding: 6px;
+}
+
+.companion-container {
+    position: absolute;
+    top: 30px;
+    right: 60px;
+    z-index: 100;
+}
+
+.paint-container {
+    position: absolute;
+    top: 130px;
+    right: 60px;
+    z-index: 100;
+}
+
+.luck-container {
+    position: absolute;
+    top: 230px;
+    right: 60px;
+    z-index: 100;
+}
+
+.umbralisgotchi-container {
+    position: absolute;
+    top: 330px;
+    right: 60px;
+    z-index: 100;
+}
+
+.umusic-container {
+    position: absolute;
+    top: 430px;
+    right: 30px;
+    z-index: 100;
+    width: 100px;
+    text-align: center;
+}
+
+.umusic-icon {
+    cursor: url('../IMG/cursor.png'), auto;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.umusic-icon:hover {
+    cursor: url('../IMG/cursor2.png'), pointer;
+    background-color: rgba(0, 0, 255, 0.1);
+}
+
+.umusic-icon img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+
+.umusic-icon span {
+    color: white;
+    margin-top: 8px;
+    font-size: 14px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    width: 100%;
+    text-align: center;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow: visible;
+    text-overflow: clip;
+    line-height: 1.2;
+}
+
+.umusic-icon.active {
+    background-color: rgba(0, 0, 255, 0.2);
+    border: 1px dotted #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    padding: 6px;
+}
+
+.blackjack-container {
+    position: absolute;
+    top: 530px;
+    right: 30px;
+    z-index: 100;
+    width: 100px;
+    text-align: center;
+}
+
+.blackjack-icon {
+    cursor: url('../IMG/cursor.png'), auto;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blackjack-icon:hover {
+    cursor: url('../IMG/cursor2.png'), pointer;
+    background-color: rgba(0, 0, 255, 0.1);
+}
+
+.blackjack-icon img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+
+.blackjack-icon span {
+    color: white;
+    margin-top: 8px;
+    font-size: 14px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    width: 100%;
+    text-align: center;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow: visible;
+    text-overflow: clip;
+    line-height: 1.2;
+}
+
+.blackjack-icon.active {
+    background-color: rgba(0, 0, 255, 0.2);
+    border: 1px dotted #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    padding: 6px;
+}
+
+@media screen and (width: 1280px) {
+    .app-window {
+        max-width: 1200px;
+        max-height: 900px;
+    }
+}
+
+.umbralis-talk {
+    background-color: #f0f0f0;
+    border: 2px solid #0a246a;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 14px;
+    color: black;
+    max-width: 200px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    animation: talkFadeIn 0.3s ease-in-out;
+    font-family: 'Tahoma', sans-serif;
+    pointer-events: none; 
+}
+@keyframes talkFadeIn {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.umbralisgotchi-container {
+    position: absolute;
+    top: 330px; 
+    right: 60px; 
+    z-index: 100;
+}
+
+.umbralisgotchi-icon {
+    cursor: url('../IMG/cursor.png'), auto;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.umbralisgotchi-icon:hover {
+    cursor: url('../IMG/cursor2.png'), pointer;
+    background-color: rgba(0, 0, 255, 0.1);
+}
+
+.umbralisgotchi-icon img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+
+.umbralisgotchi-icon span {
+    color: white;
+    margin-top: 8px;
+    font-size: 14px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+.umbralisgotchi-icon.active {
+    background-color: rgba(0, 0, 255, 0.2);
+    border: 1px dotted #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    padding: 6px;
+}
+.companion-container,
+.paint-container,
+.luck-container,
+.umbralisgotchi-container,
+.umusic-container,
+.blackjack-container {
+    position: absolute;
+    right: 30px;
+    z-index: 100;
+    width: 100px;
+    text-align: center;
+}
+.companion-container {
+    top: 30px;
+}
+
+.paint-container {
+    top: 130px;
+}
+
+.luck-container {
+    top: 230px;
+}
+
+.umbralisgotchi-container {
+    top: 330px;
+}
+
+.umusic-container {
+    top: 430px;
+}
+
+.blackjack-container {
+    top: 530px;
+}
+
+.companion-icon,
+.paint-icon,
+.luck-icon,
+.umbralisgotchi-icon,
+.umusic-icon,
+.blackjack-icon {
+    cursor: url('../IMG/cursor.png'), auto;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.companion-icon:hover,
+.paint-icon:hover,
+.luck-icon:hover,
+.umbralisgotchi-icon:hover,
+.umusic-icon:hover,
+.blackjack-icon:hover {
+    cursor: url('../IMG/cursor2.png'), pointer;
+    background-color: rgba(0, 0, 255, 0.1);
+}
+.companion-icon img,
+.paint-icon img,
+.luck-icon img,
+.umbralisgotchi-icon img,
+.umusic-icon img,
+.blackjack-icon img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+.companion-icon span,
+.paint-icon span,
+.luck-icon span,
+.umbralisgotchi-icon span,
+.umusic-icon span,
+.blackjack-icon span {
+    color: white;
+    margin-top: 8px;
+    font-size: 14px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    width: 100%;
+    text-align: center;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow: visible;
+    text-overflow: clip;
+    line-height: 1.2;
+}
+.companion-toggle:checked + .companion-icon,
+.paint-icon.active,
+.luck-icon.active,
+.umbralisgotchi-icon.active,
+.umusic-icon.active,
+.blackjack-icon.active {
+    background-color: rgba(0, 0, 255, 0.2);
+    border: 1px dotted #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    padding: 6px;
+}
+@media screen and (width: 1280px) and (height: 1024px) {
+    .companion-container,
+    .paint-container,
+    .luck-container,
+    .umbralisgotchi-container,
+    .umusic-container,
+    .blackjack-container {
+        right: 30px;
+    }
+}
+.umbralisgotchi-icon span {
+    font-size: 12px;
+}
