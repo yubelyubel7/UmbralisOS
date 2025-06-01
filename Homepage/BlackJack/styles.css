@@ -1,0 +1,154 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    text-align: center;
+    background-color: rgb(35, 105, 68);
+    margin: 0;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+#dealer-hand img, #player-hand img {
+    width: 100px;
+}
+
+h1{
+    color: rgb(185, 0, 0);
+    font-size: 48px;
+    margin: 10px 0;
+}
+
+#game-status {
+    color: blue;
+    min-height: 30px; 
+    margin: 3px 0;
+}
+
+#hit-btn, #stay-btn, #play-again-btn {
+    width: 100px;
+    height: 50px;
+    font-size: 18px;
+    background-color: chocolate;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    margin: 5px;
+}
+
+#hit-btn:hover, #stay-btn:hover, #play-again-btn:hover {
+    opacity: .7;
+}
+
+#sounds-btn {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(35, 105, 68);
+    font-size: 30px;
+    border: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 0;
+}
+
+#sounds-btn:hover {
+    opacity: 0.7;
+}
+
+.hand-total {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    margin: 5px 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.logo-container {
+    margin: 5px 0; 
+    text-align: center;
+}
+
+#game-logo {
+    max-width: 320px;
+    height: auto;
+    margin: 0 auto;
+    display: block; 
+}
+
+.logo-container + div, 
+#dealer-hand {
+    margin-top: 2px; 
+}
+
+#dealer-hand {
+    margin-top: 5px;
+}
+
+@media screen and (max-width: 500px) {
+    body {
+        padding: 5px;
+        font-size: 16px;
+    }
+    
+    h1 {
+        font-size: 32px;
+        margin: 5px 0;
+    }
+    
+    #dealer-hand img, #player-hand img {
+        width: 70px;
+    }
+    
+    #hit-btn, #stay-btn, #play-again-btn {
+        width: 80px;
+        height: 40px;
+        font-size: 16px;
+        margin: 3px;
+    }
+    
+    .hand-total {
+        font-size: 1rem;
+        padding: 3px 8px;
+        margin: 3px 0;
+    }
+    
+    #game-status {
+        min-height: 25px; 
+    }
+    
+    #sounds-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
+    
+    #game-logo {
+        max-width: 240px;
+    }
+}
+
+@media screen and (max-height: 500px) {
+    #dealer-hand, #player-hand {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-height: 150px;
+        overflow-y: auto;
+    }
+    
+    #dealer-hand img, #player-hand img {
+        margin: 2px;
+    }
+    
+    .logo-container {
+        margin: 3px 0; 
+    }
+    
+    #game-logo {
+        max-width: 200px;
+    }
+}
